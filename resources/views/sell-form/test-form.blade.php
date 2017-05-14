@@ -314,9 +314,11 @@
                 }else{
                     $.ajax({
                         url: 'http://data.shopedropoff.com/sell-form/' + dataid,
+                        type: 'put',
                         data: $('.sell-form').serialize(),
                         success: function(result){
                             console.log('Record with ID ' + dataid + ' has been updated');
+                            console.log(result);
                         }
                     })
                 }
