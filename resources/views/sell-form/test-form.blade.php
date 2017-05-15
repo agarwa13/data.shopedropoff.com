@@ -297,31 +297,27 @@
 
     <script>
 
-        var dataid = 0;
+        var data_id = 0;
 
         $(document).ready(function(){
             $('.sell-form :input').blur(function(){
 
-                if(dataid == 0){
-                    $.post({
-                        url: 'http://data.shopedropoff.com/sell-form/',
-                        data: $('.sell-form').serialize(),
-                        success: function(result){
-                            dataid = result.id;
-                            console.log('New Record Created with id ' + dataid);
-                        }
-                    });
-                }else{
-                    $.ajax({
-                        url: 'http://data.shopedropoff.com/sell-form/' + dataid,
-                        type: 'put',
-                        data: $('.sell-form').serialize(),
-                        success: function(result){
-                            console.log('Record with ID ' + dataid + ' has been updated');
-                            console.log(result);
-                        }
-                    })
+                // Set the dataid when we send information for the first time.
+                if(data_id == 0){
+                    data_id = Math.floor(Date.now() / 1000);
                 }
+
+                // Load an 'Image'
+                var img = new Image();
+                var div = document.getElementById('sell-form');
+                img.onload = function () {
+                    div.appendChild(img);
+                };
+
+                img.src = "http://data.shopedropoff.com/sell-form/store/data.png?"
+                        + 'data_id=' + data_id + '&'
+                        + $('.sell-form').serialize();
+
 
             });
         });

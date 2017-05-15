@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class SellFormController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +40,8 @@ class SellFormController extends Controller
      */
     public function store(Request $request)
     {
-        $entry = new SellForm();
+
+        $entry = SellForm::firstOrNew(['data_id' => $request->data_id]);
 
         if($request->has('name')){
             $entry->name = $request->name;
@@ -77,10 +81,7 @@ class SellFormController extends Controller
 
         $entry->save();
 
-        return response([
-            'success' => true,
-            'id' => $entry->id
-        ]);
+        return response()->download(public_path('data.png'));
     }
 
     /**

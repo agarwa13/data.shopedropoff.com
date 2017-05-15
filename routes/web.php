@@ -15,5 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('sell-form/store/data.png','SellFormController@store');
 Route::resource('sell-form','SellFormController');
+
+//Route::get('sell-form/update/{id}/data.png','SellFormController@update');

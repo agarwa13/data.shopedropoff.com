@@ -14,5 +14,8 @@ class SellForm extends Model
       'items' => 'array'
     ];
 
-
+    /*
+     * We allow the data_id to be fillable
+     */
+    protected $fillable = ['data_id'];
 }

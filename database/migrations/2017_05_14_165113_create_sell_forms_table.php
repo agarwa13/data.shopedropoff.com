@@ -15,6 +15,7 @@ class CreateSellFormsTable extends Migration
     {
         Schema::create('sell_forms', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('data_id');
             $table->string('name',191)->nullable();
             $table->string('email',191)->nullable();
             $table->string('phone',191)->nullable();
