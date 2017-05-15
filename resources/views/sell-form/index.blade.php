@@ -58,12 +58,14 @@
                         <p>
                             <strong>Address:</strong>
                             <br>
-                            {{$entry->address1}},
+                            @if(!empty($entry->address1)){{$entry->address1}},@endif
                             @if(!empty($entry->address2)){{$entry->address2}},@endif
-                            {{$entry->city}}, {{$entry->state}} - {{$entry->zip}}
+                            @if(!empty($entry->city)){{$entry->city}},@endif @if(!empty($entry->state)){{$entry->state}} @endif @if(!empty($entry->zip)) - {{$entry->zip}}@endif
                         </p>
                         <p>
-                            <strong>Created on:</strong> {{ date('F d, Y', strtotime($entry->created_at)) }} <br />
+                            <strong>Created on:</strong> {{ date('F d, Y', strtotime($entry->created_at)) }}
+                        </p>
+                        <p>
                             <strong>Last modified:</strong> {{ date('F d, Y', strtotime($entry->updated_at)) }}<br />
                         </p>
                         <p>
