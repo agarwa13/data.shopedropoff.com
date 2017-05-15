@@ -10,7 +10,7 @@ class SellFormController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->only('index','destroy');
     }
 
     /**
@@ -118,50 +118,7 @@ class SellFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $entry = SellForm::findOrFail($id);
-
-        if($request->has('name')){
-            $entry->name = $request->name;
-        }
-
-        if($request->has('email')){
-            $entry->email = $request->email;
-        }
-
-        if($request->has('phone')){
-            $entry->phone = $request->phone;
-        }
-
-        if($request->has('address1')){
-            $entry->address1 = $request->address1;
-        }
-
-        if($request->has('address2')){
-            $entry->address2 = $request->address2;
-        }
-
-        if($request->has('city')){
-            $entry->city = $request->city;
-        }
-
-        if($request->has('state')){
-            $entry->state = $request->state;
-        }
-
-        if($request->has('zip')){
-            $entry->zip = $request->zip;
-        }
-
-        if($request->has('items')){
-            $entry->items = $request->items;
-        }
-
-        $entry->save();
-
-        return response([
-            'success' => true,
-            'id' => $entry->id
-        ]);
+        //
     }
 
     /**

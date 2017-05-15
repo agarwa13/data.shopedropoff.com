@@ -31,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Data for Edropoff.com') }}
+                        {{ config('app.name', 'Data for Edropoff') }}
                     </a>
                 </div>
 
