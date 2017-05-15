@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Data for shopedropoff.com">
+    <meta name="description" content="Data for E-Dropoff">
     <meta name="author" content="Nikhil Agarwal from Bloggercasts.com">
 
     <!-- CSRF Token -->
@@ -31,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Data for Edropoff.com') }}
                     </a>
                 </div>
 

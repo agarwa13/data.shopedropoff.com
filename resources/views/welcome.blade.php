@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Data for shopedropoff.com
+                    Data for E-Dropoff
                 </div>
 
                 <div class="links">
