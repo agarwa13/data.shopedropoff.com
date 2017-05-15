@@ -66,7 +66,9 @@
                             Items:
                             <br>
                             @foreach($entry->items as $item)
-                                {{$item}} <br>
+                                @if(!empty($item))
+                                    {{$item}} <br>
+                                @endif
                             @endforeach
                         </p>
                     </div>
