@@ -47,23 +47,27 @@
                     </div>
                     <div class="modal-body">
                         <p>
-                            Name: {{$entry->name or "Not Available"}}
+                            <strong>Name:</strong> {{$entry->name or "Not Available"}}
                         </p>
                         <p>
-                            Email: {{$entry->email or "Not Available"}}
+                            <strong>Email:</strong> {{$entry->email or "Not Available"}}
                         </p>
                         <p>
-                            Phone: {{$entry->phone or "Not Available"}}
+                            <strong>Phone:</strong> {{$entry->phone or "Not Available"}}
                         </p>
                         <p>
-                            Address:
+                            <strong>Address:</strong>
                             <br>
                             {{$entry->address1}},
                             @if(!empty($entry->address2)){{$entry->address2}},@endif
                             {{$entry->city}}, {{$entry->state}} - {{$entry->zip}}
                         </p>
                         <p>
-                            Items:
+                            <strong>Created on:</strong> {{ date('F d, Y', strtotime($entry->created_at)) }} <br />
+                            <strong>Last modified:</strong> {{ date('F d, Y', strtotime($entry->updated_at)) }}<br />
+                        </p>
+                        <p>
+                            <strong>Items:</strong>
                             <br>
                             @foreach($entry->items as $item)
                                 @if(!empty($item))
