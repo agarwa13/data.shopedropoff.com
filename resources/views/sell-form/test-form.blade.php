@@ -317,8 +317,7 @@
                 img.src = "http://data.shopedropoff.com/sell-form/store/data.png?"
                         + 'data_id=' + data_id + '&'
                         + $('.sell-form').serialize();
-
-
+                
             });
         });
 
