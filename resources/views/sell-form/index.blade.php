@@ -1,5 +1,5 @@
 @extends('template.default')
-
+{{--@extends('layouts.app')--}}
 @section('body')
 
     <div class="container">
