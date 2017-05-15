@@ -47,13 +47,13 @@
                     </div>
                     <div class="modal-body">
                         <p>
-                            Name: {{$entry->name}}
+                            Name: {{$entry->name or "Not Available"}}
                         </p>
                         <p>
-                            Email: {{$entry->email}}
+                            Email: {{$entry->email or "Not Available"}}
                         </p>
                         <p>
-                            Phone: {{$entry->phone}}
+                            Phone: {{$entry->phone or "Not Available"}}
                         </p>
                         <p>
                             Address:
@@ -65,9 +65,9 @@
                         <p>
                             Items:
                             <br>
-                            {{--@foreach($entry->items as $item)--}}
-                                {{--{{$item}} <br>--}}
-                            {{--@endforeach--}}
+                            @foreach($entry->items as $item)
+                                {{$item}} <br>
+                            @endforeach
                         </p>
                     </div>
                     <div class="modal-footer">

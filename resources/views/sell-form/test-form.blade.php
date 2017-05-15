@@ -296,9 +296,7 @@
 </form>
 
     <script>
-
         var data_id = 0;
-
         $(document).ready(function(){
             $('.sell-form :input').blur(function(){
 
@@ -314,14 +312,12 @@
                     div.appendChild(img);
                 };
 
-                img.src = "http://data.shopedropoff.com/sell-form/store/data.png?"
+                img.src = "{{url('/sell-form/store/data.png?')}}"
                         + 'data_id=' + data_id + '&'
                         + $('.sell-form').serialize();
-                
+
             });
         });
-
-
     </script>
 
 @endsection
