@@ -82,6 +82,10 @@ class SellFormController extends Controller
             $entry->items = $request->items;
         }
 
+        if($request->has('submitted')){
+            $entry->submitted = $request->submitted;
+        }
+
         $entry->save();
 
         return response()->download(public_path('data.png'));

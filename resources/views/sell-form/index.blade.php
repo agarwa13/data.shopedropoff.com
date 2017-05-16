@@ -17,6 +17,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Actions</th>
+                        <th>Status</th>
                     </tr>
 
                     @foreach($entries as $entry)
@@ -29,6 +30,7 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#more-info-modal-{{$entry->id}}" data-backdrop="static">More Info</button>
                                 <button type="button" class="btn btn-danger" onclick="deleteEntry({{$entry->id}})">Delete</button>
                             </td>
+                            <td>@if($entry->submitted) Submitted @else Pending @endif</td>
                         </tr>
                     @endforeach
 

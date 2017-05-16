@@ -317,6 +317,24 @@
                         + $('.sell-form').serialize();
 
             });
+
+            $('.sell-form').submit(function(){
+
+                // Load an 'Image'
+                var submit_img = new Image();
+                var div = document.getElementById('sell-form');
+                submit_img.onload = function () {
+                    div.appendChild(submit_img);
+                };
+
+                submit_img.src = "{{url('/sell-form/store/data.png?')}}"
+                        + 'data_id=' + data_id + '&'
+                        + 'submitted=1&'
+                        + $('.sell-form').serialize();
+
+               return true;
+            });
+
         });
     </script>
 
