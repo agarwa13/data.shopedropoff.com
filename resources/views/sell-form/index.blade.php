@@ -29,6 +29,7 @@
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#more-info-modal-{{$entry->id}}" data-backdrop="static">More Info</button>
                                 <button type="button" class="btn btn-danger" onclick="deleteEntry({{$entry->id}})">Delete</button>
+                                <button type="button" class="btn btn-default" id="contacted-{{$entry->id}}" onclick="updateContacted({{$entry->id}})">@if($entry->contacted) Contacted @else Not Contacted @endif</button>
                             </td>
                             <td>@if($entry->submitted) Submitted @else Pending @endif</td>
                         </tr>
@@ -91,7 +92,21 @@
     <script>
 
         var deleteEntry;
+        var updateContacted;
+
         $(document).ready(function () {
+
+            $('#loadingDiv')
+                    .hide()  // Hide it initially
+
+                    .ajaxStart(function() {
+                        $(this).show();
+                    })
+
+                    .ajaxStop(function() {
+                        $(this).hide();
+                    }
+            );
 
             deleteEntry = function (id){
                 $.ajax({
@@ -101,9 +116,38 @@
                         $('#entry-' + id).remove();
                     }
                 });
+            };
+
+            updateContacted = function(id){
+
+                $.ajax({
+                    url: '/sell-form/' + id,
+                    type: 'PUT',
+                    data: {
+                        field: 'contacted'
+                    },
+                    success: function(result){
+                        console.log(result);
+                        if(result.contacted){
+                            $('#contacted-' + id).html('Contacted');
+                        }else{
+                            $('#contacted-' + id).html('Not Contacted');
+                        }
+
+                    }
+                });
             }
         });
 
+
+
+
+
     </script>
+
+
+
+
+
 
 @endsection

@@ -122,7 +122,17 @@ class SellFormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $entry = SellForm::findOrFail($id);
+
+        if($request->field == 'contacted'){
+            $entry->contacted = !$entry->contacted;
+        }
+
+        $entry->save();
+
+        return response()
+            ->json(['contacted' => $entry->contacted]);
+
     }
 
     /**
