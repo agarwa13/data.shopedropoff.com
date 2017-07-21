@@ -54,7 +54,7 @@
                             </td>
 
                             <td>
-                                {{$entry->created_at}}
+                                {{$entry->created_at->toDateString()}}
                             </td>
 
                         </tr>
