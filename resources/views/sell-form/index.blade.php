@@ -18,6 +18,9 @@
                         <th>Phone</th>
                         <th>Actions</th>
                         <th>Status</th>
+                        <th>Days</th>
+                        <th>Submitted On</th>
+
                     </tr>
 
                     @foreach($entries as $entry)
@@ -32,6 +35,26 @@
                                 <button type="button" class="btn btn-default" id="contacted-{{$entry->id}}" onclick="updateContacted({{$entry->id}})">@if($entry->contacted) Contacted @else Not Contacted @endif</button>
                             </td>
                             <td>@if($entry->submitted) Submitted @else Pending @endif</td>
+                            <td>
+
+                                <div class="checkbox">
+                                    <label><input id="seven-day-{{$entry->id}}" onclick="updateSevenDay({{$entry->id}})" type="checkbox" value="{{$entry->seven_day}}" @if($entry->seven_day) checked @endif >7 Day</label>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label><input id="fourteen-day-{{$entry->id}}" onclick="updateFourteenDay({{$entry->id}})" type="checkbox" value="{{$entry->fourteen_day}}" @if($entry->fourteen_day) checked @endif >14 Day</label>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label><input id="thirty-day-{{$entry->id}}" onclick="updateThirtyDay({{$entry->id}})" type="checkbox" value="{{$entry->thirty_day}}" @if($entry->thirty_day) checked @endif >30 Day</label>
+                                </div>
+                                
+                            </td>
+
+                            <td>
+                                {{$entry->created_at}}
+                            </td>
+
                         </tr>
                     @endforeach
 
@@ -93,6 +116,9 @@
 
         var deleteEntry;
         var updateContacted;
+        var updateSevenDay;
+        var updateFourteenDay;
+        var updateThirtyDay;
 
         $(document).ready(function () {
 
@@ -136,7 +162,72 @@
 
                     }
                 });
-            }
+            };
+
+
+            updateSevenDay = function(id){
+
+                $.ajax({
+                    url: '/sell-form/' + id,
+                    type: 'PUT',
+                    data: {
+                        field: 'seven_day'
+                    },
+                    success: function(result){
+                        console.log(result);
+                        if(result.seven_day){
+                            $('#seven-day-' + id).prop('checked', true);
+                        }else{
+                            $('#seven-day-' + id).prop('checked', false);
+                        }
+
+                    }
+                });
+            };
+
+
+            updateFourteenDay = function(id) {
+
+                $.ajax({
+                    url: '/sell-form/' + id,
+                    type: 'PUT',
+                    data: {
+                        field: 'fourteen_day'
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        if (result.fourteen_day) {
+                            $('#fourteen-day-' + id).prop('checked', true);
+                        } else {
+                            $('#fourteen-day-' + id).prop('checked', false);
+                        }
+
+                    }
+                });
+
+            };
+
+
+            updateThirtyDay = function(id){
+
+                $.ajax({
+                    url: '/sell-form/' + id,
+                    type: 'PUT',
+                    data: {
+                        field: 'thirty_day'
+                    },
+                    success: function(result){
+                        console.log(result);
+                        if(result.thirty_day){
+                            $('#thirty-day-' + id).prop('checked', true);
+                        }else{
+                            $('#thirty-day-' + id).prop('checked', false);
+                        }
+
+                    }
+                });
+            };
+
         });
 
 

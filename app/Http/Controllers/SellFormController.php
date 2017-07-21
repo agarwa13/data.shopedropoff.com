@@ -128,10 +128,27 @@ class SellFormController extends Controller
             $entry->contacted = !$entry->contacted;
         }
 
+        if($request->field == 'seven_day'){
+            $entry->seven_day = !$entry->seven_day;
+        }
+
+        if($request->field == 'fourteen_day'){
+            $entry->fourteen_day = !$entry->fourteen_day;
+        }
+
+        if($request->field == 'thirty_day'){
+            $entry->thirty_day = !$entry->thirty_day;
+        }
+
         $entry->save();
 
         return response()
-            ->json(['contacted' => $entry->contacted]);
+            ->json([
+                'contacted' => $entry->contacted,
+                'seven_day' => $entry->seven_day,
+                'fourteen_day' => $entry->fourteen_day,
+                'thirty_day' => $entry->thirty_day
+            ]);
 
     }
 
