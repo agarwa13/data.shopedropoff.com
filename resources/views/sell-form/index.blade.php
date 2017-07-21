@@ -31,7 +31,9 @@
                             <td>{{$entry->phone}}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#more-info-modal-{{$entry->id}}" data-backdrop="static">More Info</button>
+                                <br>
                                 <button type="button" class="btn btn-danger" onclick="deleteEntry({{$entry->id}})">Delete</button>
+                                <br>
                                 <button type="button" class="btn btn-default" id="contacted-{{$entry->id}}" onclick="updateContacted({{$entry->id}})">@if($entry->contacted) Contacted @else Not Contacted @endif</button>
                             </td>
                             <td>@if($entry->submitted) Submitted @else Pending @endif</td>
