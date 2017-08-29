@@ -23,6 +23,8 @@
 
                     </tr>
 
+                    <?php var_dump($entries); ?>
+
                     @foreach($entries as $entry)
                         <tr id="entry-{{$entry->id}}">
                             <td>{{$entry->id}}</td>
