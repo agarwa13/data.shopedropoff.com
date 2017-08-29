@@ -20,7 +20,7 @@ class SellFormController extends Controller
      */
     public function index()
     {
-        $entries = SellForm::orderBy('created_at','desc')->simplePaginate(10);
+        $entries = SellForm::orderBy('created_at','desc')->simplePaginate(1);
         return view('sell-form.index')
             ->with('entries',$entries);
     }
