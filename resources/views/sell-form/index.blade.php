@@ -23,8 +23,6 @@
 
                     </tr>
 
-                    <?php var_dump($entries); ?>
-
                     @foreach($entries as $entry)
                         <tr id="entry-{{$entry->id}}">
                             <td>{{$entry->id}}</td>
@@ -63,6 +61,9 @@
                     @endforeach
 
                 </table>
+
+                {{$entries->links()}}
+
             </div>
         </div>
     </div>
@@ -112,6 +113,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+
             </div>
         </div>
     @endforeach
