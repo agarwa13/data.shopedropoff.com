@@ -102,12 +102,25 @@
                         <p>
                             <strong>Items:</strong>
                             <br>
-                            @foreach($entry->items as $item)
-                                @if(!empty($item))
-                                    {{$item}} <br>
-                                @endif
-                            @endforeach
+                            @if(!empty($entry->items))
+                                @foreach($entry->items as $item)
+                                    @if(!empty($item))
+                                        {{$item}} <br>
+                                    @endif
+                                @endforeach
+                            @endif
                         </p>
+                        @if(!empty($entry->contact_via_email))
+                        <p>
+                            <strong>Contact via Email Preferred:</strong> @if($entry->contact_via_email) Yes @else No @endif
+                        </p>
+                        @endif
+
+                        @if(!empty($entry->contact_via_phone))
+                        <p>
+                            <strong>Contact via Phone Preferred:</strong> @if($entry->contact_via_phone) Yes @else No @endif
+                        </p>
+                        @endif
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

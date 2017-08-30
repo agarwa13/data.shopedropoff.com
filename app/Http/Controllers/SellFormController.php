@@ -82,6 +82,22 @@ class SellFormController extends Controller
             $entry->items = $request->items;
         }
 
+        if($request->has('contact_via_email')){
+            if($request->contact_via_email == 'Yes'){
+                $entry->contact_via_email = true;
+            }else{
+                $entry->contact_via_email = false;
+            }
+        }
+
+        if($request->has('contact_via_phone')){
+            if($request->contact_via_phone == 'Yes'){
+                $entry->contact_via_phone = true;
+            }else{
+                $entry->contact_via_phone = false;
+            }
+        }
+
         if($request->has('submitted')){
             $entry->submitted = $request->submitted;
         }
